@@ -2,7 +2,7 @@
 Author: Andy Tang
 Email: andy.tang62@gmail.com
 
-IMDB Web Scraper:
+IMDB Web Scraper
 """
 
 import requests
@@ -42,11 +42,12 @@ def append_data(url, overall_list):
 
 
 if __name__ == "__main__":
+	filename = 'data'
 	my_list = []
 	for i in range(1990, 2017):
 		url = 'http://www.imdb.com/search/title?year={},{}&title_type=feature&sort=boxoffice_gross_us,desc'.format(str(i), str(i))
 		my_list = append_data(url, my_list)
-	with open('data', 'wb') as myfile:
+	with open(filename, 'wb') as myfile:
 		    wr = csv.writer(myfile)
 		    for datapoint in my_list:
 		    	wr.writerow(datapoint)
